@@ -1,0 +1,27 @@
+name: Testing Container
+on: [push]
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version:
+          - "alpine/3.11"
+          - "alpine/3.12"
+          - "centos/7"
+          - "centos/8"
+          - "debian/10"
+          - "debian/11"
+          - "debian/sid"
+          - "ubuntu/16.04"
+          - "ubuntu/18.04"
+          - "ubuntu/20.04"
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Build Docker image
+        run: docker build  -f ${{ matrix.version }}.Dockerfile --pull -t ${{ matrix.version }} .
+      - name: Test Docker image
+        run: docker run ${{ matrix.version }}
+      - name: Inspect Docker image
+        run: docker image inspect ${{ matrix.version }}

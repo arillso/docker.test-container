@@ -1,6 +1,6 @@
-# Ubuntu image with systemd enabled
+# Ubuntu image for ansible molecule tests
 
-You can use this image as a base container to run systemd services inside.
+These are test containers for ansible molecule tests.
 
 ## Supported tags
 
@@ -12,16 +12,16 @@ You can use this image as a base container to run systemd services inside.
 
 1. Run the container as a daemon
 
-   `docker run -d --name systemd-ubuntu --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/systemd-ubuntu`
+   `docker run -d --name ubuntu --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/ubuntu`
 
    or if it doesn't work
 
-   `docker run -d --name systemd-ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/systemd-ubuntu`
+   `docker run -d --name ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/ubuntu`
 
 2. Enter to the container
 
-   `docker exec -it systemd-ubuntu sh`
+   `docker exec -it ubuntu sh`
 
 3. Remove the container
 
-   `docker rm -f systemd-ubuntu`
+   `docker rm -f ubuntu`
