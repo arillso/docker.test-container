@@ -22,6 +22,6 @@ jobs:
       - name: Build Docker image
         run: docker build  -f ${{ matrix.version }}.Dockerfile --pull -t ${{ matrix.version }} .
       - name: Test Docker image
-        run: docker run ${{ matrix.version }}
+        run: docker run -d --name alpine --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro ${{ matrix.version }}
       - name: Inspect Docker image
         run: docker image inspect ${{ matrix.version }}
