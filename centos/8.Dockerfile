@@ -8,7 +8,13 @@ LABEL "org.opencontainers.image.vendor"="arillso" \
 
 ENV container docker
 
-RUN cd /lib/systemd/system/sysinit.target.wants/; \
+RUN yum install -y \
+    sudo \
+    bash \
+    iproute \
+    && sed -i 's/plugins=0/plugins=1/g' /etc/yum.conf \
+    && yum clean all \
+    && cd /lib/systemd/system/sysinit.target.wants/; \
     for i in *; do [ $i = systemd-tmpfiles-setup.service ] || rm -f $i; done
 
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \

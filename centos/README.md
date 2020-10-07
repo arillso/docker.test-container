@@ -1,6 +1,6 @@
-# CentOS image with systemd enabled
+# CentOS image for ansible molecule tests
 
-You can use this image as a base container to run systemd services inside.
+These are test containers for ansible molecule tests.
 
 ## Supported tags
 
@@ -11,16 +11,16 @@ You can use this image as a base container to run systemd services inside.
 
 1. Run the container as a daemon
 
-   `docker run -d --name systemd-centos --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/systemd-centos`
+   `docker run -d --name centos --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/centos`
 
    or if it doesn't work
 
-   `docker run -d --name systemd-centos --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/systemd-centos`
+   `docker run -d --name centos --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/centos`
 
 2. Enter to the container
 
-   `docker exec -it systemd-centos sh`
+   `docker exec -it centos sh`
 
 3. Remove the container
 
-   `docker rm -f systemd-centos`
+   `docker rm -f centos`

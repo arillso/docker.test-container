@@ -1,27 +1,27 @@
-# Debian image with systemd enabled
+# Debian image for ansible molecule tests
 
-You can use this image as a base container to run systemd services inside.
+These are test containers for ansible molecule tests.
 
 ## Supported tags
 
-- `sid`
-- `11`
 - `10`, `latest`
+- `11`
+- `sid`
 
 ## Usage
 
 1. Run the container as a daemon
 
-   `docker run -d --name systemd-debian --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/systemd-debian`
+   `docker run -d --name debian --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/debian`
 
    or if it doesn't work
 
-   `docker run -d --name systemd-debian --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/systemd-debian`
+   `docker run -d --name debian --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro arillso/debian`
 
 2. Enter to the container
 
-   `docker exec -it systemd-debian sh`
+   `docker exec -it debian sh`
 
 3. Remove the container
 
-   `docker rm -f systemd-debian`
+   `docker rm -f debian`
