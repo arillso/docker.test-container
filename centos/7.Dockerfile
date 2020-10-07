@@ -8,10 +8,8 @@ LABEL "org.opencontainers.image.vendor"="arillso" \
 
 ENV container docker
 
-RUN yum makecache fast \
-    && yum install -y /usr/bin/python /usr/bin/python2-config \
+RUN yum install -y \
     sudo \
-    yum-plugin-ovl \
     bash \
     iproute \
     && sed -i 's/plugins=0/plugins=1/g' /etc/yum.conf \
