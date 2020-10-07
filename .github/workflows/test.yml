@@ -1,5 +1,13 @@
 name: Testing Container
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - .github/settings.yml
+      - CHANGELOG.md
+      - CONTRIBUTING.md
+      - LICENSE.md
+      - README.md
+
 jobs:
   testing:
     runs-on: ubuntu-latest
