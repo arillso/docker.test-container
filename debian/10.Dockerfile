@@ -11,7 +11,16 @@ ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
-    && apt-get install -y systemd systemd-sysv \
+    && apt-get install -y \
+    systemd \
+    systemd-sysv \
+    python3 \
+    sudo \
+    bash \
+    ca-certificates \
+    iproute2 \
+    python3-apt \
+    aptitude \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

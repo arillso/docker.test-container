@@ -7,6 +7,15 @@ on:
       - CONTRIBUTING.md
       - LICENSE.md
       - README.md
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - .github/settings.yml
+      - CHANGELOG.md
+      - CONTRIBUTING.md
+      - LICENSE.md
+      - README.md
 
 jobs:
   testing:

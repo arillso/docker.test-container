@@ -8,3 +8,5 @@ and [human-readable changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Initial commit
+- Add Alpine Linux Support
+- Add Github Action Support
