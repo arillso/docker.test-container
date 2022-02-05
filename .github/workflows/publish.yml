@@ -11,8 +11,7 @@ jobs:
     strategy:
       matrix:
         version:
-          - "3.11"
-          - "3.12"
+          - "3.15"
     steps:
       - uses: actions/checkout@v1
 
@@ -41,14 +40,7 @@ jobs:
     strategy:
       matrix:
         version:
-          - "7"
           - "8"
-          - "debian/10"
-          - "debian/11"
-          - "debian/sid"
-          - "ubuntu/16.04"
-          - "ubuntu/18.04"
-          - "ubuntu/20.04"
     steps:
       - uses: actions/checkout@v1
 
@@ -67,10 +59,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2.9.0
         with:
-          file: alpine/${{ matrix.version }}.Dockerfile
+          file: centos/${{ matrix.version }}.Dockerfile
           push: true
           tags: |
-            arillso/alpine:${{ matrix.version }}
+            arillso/centos:${{ matrix.version }}
 
   publish-debian:
     runs-on: ubuntu-latest
@@ -79,10 +71,6 @@ jobs:
         version:
           - "10"
           - "11"
-          - "sid"
-          - "ubuntu/16.04"
-          - "ubuntu/18.04"
-          - "ubuntu/20.04"
     steps:
       - uses: actions/checkout@v1
 
@@ -101,18 +89,16 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2.9.0
         with:
-          file: alpine/${{ matrix.version }}.Dockerfile
+          file: debian/${{ matrix.version }}.Dockerfile
           push: true
           tags: |
-            arillso/alpine:${{ matrix.version }}
+            arillso/debian:${{ matrix.version }}
 
   publish-ubuntu:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         version:
-          - "16.04"
-          - "18.04"
           - "20.04"
     steps:
       - uses: actions/checkout@v1
@@ -132,7 +118,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2.9.0
         with:
-          file: alpine/${{ matrix.version }}.Dockerfile
+          file: ubuntu/${{ matrix.version }}.Dockerfile
           push: true
           tags: |
-            arillso/alpine:${{ matrix.version }}
+            arillso/ubuntu:${{ matrix.version }}

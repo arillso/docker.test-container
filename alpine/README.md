@@ -4,8 +4,7 @@ These are test containers for ansible molecule tests.
 
 ## Supported tags
 
-- `3.12`, `latest`
-- `3.11`
+- `3.15`
 
 ## Usage
 

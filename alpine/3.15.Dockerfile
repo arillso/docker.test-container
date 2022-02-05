@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.15
 
 LABEL "org.opencontainers.image.vendor"="arillso" \
     "org.opencontainers.image.licenses"="MIT" \
