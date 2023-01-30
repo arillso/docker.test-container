@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2.9.0
+        uses: docker/build-push-action@v4.0.0
         with:
           file: alpine/${{ matrix.version }}.Dockerfile
           push: true
@@ -58,7 +58,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2.9.0
+        uses: docker/build-push-action@v4.0.0
         with:
           file: debian/${{ matrix.version }}.Dockerfile
           push: true
@@ -87,7 +87,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2.9.0
+        uses: docker/build-push-action@v4.0.0
         with:
           file: ubuntu/${{ matrix.version }}.Dockerfile
           push: true
